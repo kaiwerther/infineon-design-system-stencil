@@ -20,7 +20,7 @@
 
 ### Depends on
 
-- [ifx-button](../button)
+- [ifx-button](../../patterns/button)
 
 ### Graph
 ```mermaid

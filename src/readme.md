@@ -16,7 +16,7 @@
 
 ### Used by
 
- - [ifx-dropdown](./components/dropdown)
+ - [ifx-dropdown](./components/building-blocks/dropdown)
 
 ### Graph
 ```mermaid

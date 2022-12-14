@@ -2,8 +2,8 @@ import { Component, Prop, h } from '@stencil/core';
 
 @Component({
   tag: 'ifx-button',
-  styleUrl: '../../index.scss',
-  shadow: true,
+  styleUrl: '../../../index.scss',
+  shadow: false,
 })
 
 export class Button {
@@ -13,6 +13,8 @@ export class Button {
   @Prop() size: 's' | 'm';
   @Prop() disabled: boolean;
   @Prop() icon: boolean;
+  @Prop() type: string;
+  @Prop() classString: string;
 
   render() {
     const variantClass =
@@ -29,16 +31,16 @@ export class Button {
 
     return (
       <button class={
-        `btn
+        `${this.classString} btn
         btn-${variantClass}
         ${sizeClass}
         ${this.disabled ? 'disabled' : ''}`
       }
-        type="button"
+        type={`${this.type}`}
       >
-
-        {this.icon ? 'icon' : ''}
         {this.label}
+        {this.icon ? 'icon' : ''}
+        <slot />
       </button>
     );
   }

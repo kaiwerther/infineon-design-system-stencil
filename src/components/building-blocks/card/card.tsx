@@ -2,7 +2,7 @@ import { Component, Prop, h } from '@stencil/core';
 
 @Component({
   tag: 'ifx-card',
-  styleUrl: '../../index.scss',
+  styleUrl: '../../../index.scss',
   shadow: true,
 })
 
@@ -27,7 +27,7 @@ export class Card {
           <p class="card-text">{this.text}</p>
 
           {`${this.button}` === "true"
-            ? <ifx-button label="Go somewhere" variant="solid" color="primary" size="s" disabled={false} icon={false}/>
+            ? <ifx-button variant="solid" color="primary" size="s" disabled={false} icon={false}>Go somewhere</ifx-button>
             : null
           }
         </div>

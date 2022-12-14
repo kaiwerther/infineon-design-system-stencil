@@ -3,7 +3,7 @@ import { calendar16 } from '@infineon/infineon-icons';
 
 @Component({
   tag: 'ifx-dropdown',
-  styleUrl: '../../index.scss',
+  styleUrl: '../../../index.scss',
   shadow: true
 })
 
@@ -102,38 +102,28 @@ export class Dropdown {
 
     return(
       <div class='dropdown'>
-        <button onClick={this.toggleDropdownMenu.bind(this)} class={`dropdown-toggle btn btn-primary ${sizeClass} ${this.disabled ? 'disabled' : ''}`} type="button">
-          {this.label}
-        </button>
+        <ifx-button onClick={this.toggleDropdownMenu.bind(this)} classString={`dropdown-toggle btn btn-primary ${sizeClass} ${this.disabled ? 'disabled' : ''}`} type="button">{this.label}</ifx-button>
+        
         <div class={`dropdown-menu ${this.icon ? 'showIcon' : ""}`}>
-
-          {this.search && <input class='inf__dropdown-search' type="text" placeholder="search" />}
-          {this.filter && 
-          <select class="inf__dropdown-select">
-            <option>Sort by</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-          </select>
-          }
-
+          {this.search && <ifx-input classString="inf__dropdown-search" type="search" placeholder="search" />}
+          {this.filter && <ifx-select classString='inf__dropdown-select' />}
           <a href="javascript:;" class="dropdown-item">
-            {this.filter && <input type="checkbox" id="checkbox" class="form-check-input" />}
+            {this.filter && <ifx-input type="checkbox" id="checkbox" classString="form-check-input" />}
             {this.icon && <infineon-icon-stencil icon={calendar16}></infineon-icon-stencil>}
             <label htmlFor="checkbox" class="form-check-label">Action Default1</label>
           </a>
           <a href="javascript:;" class="dropdown-item">
-            {this.filter && <input type="checkbox" id="checkbox2" class="form-check-input" />}
+            {this.filter && <ifx-input type="checkbox" id="checkbox2" classString="form-check-input" />}
             {this.icon && <infineon-icon-stencil icon={calendar16}></infineon-icon-stencil>}
             <label htmlFor="checkbox2" class="form-check-label">Action Default2</label>
           </a>
           <a href="javascript:;" class="dropdown-item">
-            {this.filter && <input type="checkbox" id="checkbox3" class="form-check-input" />}
+            {this.filter && <ifx-input type="checkbox" id="checkbox3" classString="form-check-input" />}
             {this.icon && <infineon-icon-stencil icon={calendar16}></infineon-icon-stencil>}
             <label htmlFor="checkbox3" class="form-check-label">Action Default3</label>
           </a>
           <a href="javascript:;" class="dropdown-item">
-            {this.filter && <input type="checkbox" id="checkbox4" class="form-check-input" />}
+            {this.filter && <ifx-input type="checkbox" id="checkbox4" classString="form-check-input" />}
             {this.icon && <infineon-icon-stencil icon={calendar16}></infineon-icon-stencil>}
             <label htmlFor="checkbox4" class="form-check-label">Action Default4</label>
           </a>

@@ -21,11 +21,17 @@
 
 ### Depends on
 
-- [infineon-icon-stencil](../..)
+- [ifx-button](../../patterns/button)
+- [ifx-input](../../patterns/input)
+- [ifx-select](../../patterns/select)
+- [infineon-icon-stencil](../../..)
 
 ### Graph
 ```mermaid
 graph TD;
+  ifx-dropdown --> ifx-button
+  ifx-dropdown --> ifx-input
+  ifx-dropdown --> ifx-select
   ifx-dropdown --> infineon-icon-stencil
   style ifx-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```
