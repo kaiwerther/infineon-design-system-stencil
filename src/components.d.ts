@@ -7,11 +7,12 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface IfxButton {
+        "classString": string;
         "color": 'primary' | 'secondary' | 'success' | 'danger' | 'warning';
-        "disabled": boolean;
+        "disabled": string | boolean;
         "icon": boolean;
         "label": string;
-        "size": 's' | 'm';
+        "size": 's' | 'm' | 'btn-s' | "";
         "variant": 'solid' | 'outline' | 'outline-text';
     }
     interface IfxCard {
@@ -22,6 +23,7 @@ export namespace Components {
         "text": string;
     }
     interface IfxDropdown {
+        "color": 'primary' | 'secondary' | 'success' | 'danger' | 'warning';
         "disabled": boolean;
         "filter": boolean;
         "icon": boolean;
@@ -67,11 +69,12 @@ declare global {
 }
 declare namespace LocalJSX {
     interface IfxButton {
+        "classString"?: string;
         "color"?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning';
-        "disabled"?: boolean;
+        "disabled"?: string | boolean;
         "icon"?: boolean;
         "label"?: string;
-        "size"?: 's' | 'm';
+        "size"?: 's' | 'm' | 'btn-s' | "";
         "variant"?: 'solid' | 'outline' | 'outline-text';
     }
     interface IfxCard {
@@ -82,6 +85,7 @@ declare namespace LocalJSX {
         "text"?: string;
     }
     interface IfxDropdown {
+        "color"?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning';
         "disabled"?: boolean;
         "filter"?: boolean;
         "icon"?: boolean;

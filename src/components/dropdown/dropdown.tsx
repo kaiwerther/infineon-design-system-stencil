@@ -15,6 +15,7 @@ export class Dropdown {
   @Prop() icon: boolean = false;
   @Prop() search: boolean = false;
   @Prop() filter: boolean = false;
+  @Prop() color: 'primary' | 'secondary' | 'success' | 'danger' | 'warning';
   @Element() el;
 
   getDropdownMenu() { 
@@ -97,14 +98,12 @@ export class Dropdown {
 
     const sizeClass =
       `${this.size}` === "s"
-      ? "btn-s"
+      ? 'btn-s'
       : "";
-
+  
     return(
       <div class='dropdown'>
-        <button onClick={this.toggleDropdownMenu.bind(this)} class={`dropdown-toggle btn btn-primary ${sizeClass} ${this.disabled ? 'disabled' : ''}`} type="button">
-          {this.label}
-        </button>
+        <ifx-button onClick={this.toggleDropdownMenu.bind(this)} color={`${this.color}`} disabled={`${this.disabled ? 'disabled' : ''}`} size={sizeClass} classString={`dropdown btn-toggle`}>{this.label} <slot /></ifx-button>
         <div class={`dropdown-menu ${this.icon ? 'showIcon' : ""}`}>
 
           {this.search && <input class='inf__dropdown-search' type="text" placeholder="search" />}

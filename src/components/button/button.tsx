@@ -1,4 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
+import "../dropdown/dropdown" 
 
 @Component({
   tag: 'ifx-button',
@@ -10,9 +11,10 @@ export class Button {
   @Prop() label: string;
   @Prop() variant: 'solid' | 'outline' | 'outline-text';
   @Prop() color: 'primary' | 'secondary' | 'success' | 'danger' | 'warning';
-  @Prop() size: 's' | 'm';
-  @Prop() disabled: boolean;
+  @Prop() size: 's' | 'm' | 'btn-s' | "";
+  @Prop() disabled: string | boolean;
   @Prop() icon: boolean;
+  @Prop() classString: string;
 
   render() {
     const variantClass =
@@ -29,14 +31,14 @@ export class Button {
 
     return (
       <button class={
-        `btn
+        `btn ${this.classString}
         btn-${variantClass}
-        ${sizeClass}
+        ${sizeClass ? sizeClass : this.size}
         ${this.disabled ? 'disabled' : ''}`
       }
         type="button"
       >
-
+        <slot />
         {this.icon ? 'icon' : ''}
         {this.label}
       </button>

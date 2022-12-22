@@ -27,6 +27,7 @@
     "build-stencil": "stencil build --docs",
     "build-docs": "node tools/createMarkdownStories.js",
     "build": "yarn copy-fonts && yarn build-docs && yarn stencil build --docs && yarn build-storybook",
+    "build-watch" : "stencil build --watch",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
