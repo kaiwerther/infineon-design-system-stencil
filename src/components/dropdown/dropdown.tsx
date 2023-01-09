@@ -23,9 +23,11 @@ export class Dropdown {
     return dropdownMenu
   }
 
-  getDropdownWrapper() { 
-    const dropdownWrapper = this.el.shadowRoot.querySelector('.dropdown');
-    return dropdownWrapper
+  getDropdownButton() { 
+    const dropdownWrapper = this.el.shadowRoot.querySelector('.dropdown'); 
+    const dropdownButton = dropdownWrapper.querySelector('.btn')
+ 
+    return dropdownButton
   }
 
   handleClassList(el, type, className) { 
@@ -34,14 +36,14 @@ export class Dropdown {
 
   toggleDropdownMenu() {
     const dropdownMenu = this.getDropdownMenu();
-    const dropdownWrapper = this.getDropdownWrapper()
+    const dropdownWrapper = this.getDropdownButton()
     this.handleClassList(dropdownMenu, 'toggle', 'show')
     this.handleClassList(dropdownWrapper, 'toggle', 'show')
   }
 
   closeDropdownMenu() { 
     const dropdownMenu = this.getDropdownMenu()
-    const dropdownWrapper = this.getDropdownWrapper()
+    const dropdownWrapper = this.getDropdownButton()
     this.handleClassList(dropdownMenu, 'remove', 'show')
     this.handleClassList(dropdownWrapper, 'remove', 'show')
   }

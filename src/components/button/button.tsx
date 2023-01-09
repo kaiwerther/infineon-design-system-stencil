@@ -1,10 +1,9 @@
 import { Component, Prop, h } from '@stencil/core';
-import "../dropdown/dropdown" 
 
 @Component({
   tag: 'ifx-button',
   styleUrl: '../../index.scss',
-  shadow: true,
+  shadow: false,
 })
 
 export class Button {
@@ -30,7 +29,7 @@ export class Button {
         : "";
 
     return (
-      <button class={
+        <button class={
         `btn ${this.classString}
         btn-${variantClass}
         ${sizeClass ? sizeClass : this.size}
