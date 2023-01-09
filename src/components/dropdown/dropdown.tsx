@@ -24,7 +24,9 @@ export class Dropdown {
 
   getDropdownWrapper() { 
     const dropdownWrapper = this.el.shadowRoot.querySelector('.dropdown');
-    return dropdownWrapper
+    const dropdownButton = dropdownWrapper.querySelector('.btn')
+    console.log('dropdown button', dropdownButton)
+    return dropdownButton
   }
 
   handleClassList(el, type, className) { 
