@@ -18,7 +18,7 @@ export class Dropdown {
   @Element() el;
 
   getDropdownMenu() {
-    const dropdownMenuComponent = document.querySelector('ifx-dropdown-menu').shadowRoot;
+    const dropdownMenuComponent = this.el.querySelector('ifx-dropdown-menu').shadowRoot;
     const dropdownMenuElement = dropdownMenuComponent.querySelector('.dropdown-menu');
     return dropdownMenuElement
   }
@@ -29,7 +29,7 @@ export class Dropdown {
   }
 
   getDropdownItems() { 
-    const dropdownMenuItems = document.querySelectorAll('ifx-dropdown-item')
+    const dropdownMenuItems = this.el.querySelectorAll('ifx-dropdown-item')
     return dropdownMenuItems
   }
 
