@@ -18,8 +18,7 @@ addons.register("usage-tab", () => {
         const style = document.createElement("link");
         style.id = "hide-usage-tab";
         style.rel = "stylesheet";
-        // style.href = "hide-usage-tab.css";
-
+        style.href = "hide-usage-tab.css";
         document.body.appendChild(style);
       }
 
