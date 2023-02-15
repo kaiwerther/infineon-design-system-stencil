@@ -12,17 +12,22 @@ export const parameters = {
       date: /Date$/
     },
   },
-  previewTabs: {
-    // canvas: {
-    //   hidden: true,
-    // },
-    // 'storybook/docs/panel': { index: -1 },
-  },
-  // viewMode: 'docs',
 
   docs: {
      source: {
         state: 'open',
     },
+  },
+  options: {
+    storySort: {
+      order: [
+        'Setup & Info',
+        [
+          'Getting started',
+        ],        
+        'Components',
+        'Contact'
+      ]
+    }
   }
 }

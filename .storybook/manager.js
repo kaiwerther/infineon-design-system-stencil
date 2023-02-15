@@ -23,4 +23,11 @@ addons.setConfig({
     copy: { hidden: false },
     fullscreen: { hidden: false },
   },
+  previewTabs: {
+    // the order of the tabs is configured by the order here
+    // null means no override for the title
+    'storybook/docs/panel': null,
+    canvas: null,
+    'usage-tab': null,
+  },
 });
