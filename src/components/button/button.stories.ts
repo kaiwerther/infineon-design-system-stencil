@@ -1,5 +1,12 @@
+// import { Doc } from './Text.mdx';
+
 export default {
   title: "Components/Button",
+  // parameters: {
+  //   docs: {
+  //     page: Doc
+  //   }
+  // },
   args: {
     label: "Button",
     variant: "solid",
@@ -9,7 +16,6 @@ export default {
     icon: false,
     href: "",
     iconPosition: 'left'
-
   },
 
   argTypes: {
@@ -34,8 +40,9 @@ export default {
 };
 
 
+
 const DefaultTemplate = (args) =>
-  `<ifx-button  variant="${args.variant}" href="${args.href}" target="_blank" color="${args.color}" size="${args.size}" disabled="${args.disabled}">
+  `<ifx-button variant="${args.variant}" href="${args.href}" target="_blank" color="${args.color}" size="${args.size}" disabled="${args.disabled}">
   ${args.label}
   </ifx-button>`;
 
@@ -60,6 +67,7 @@ const IconToTheRightTemplate = (args) =>
 
 
 export const Default = DefaultTemplate.bind({});
+
 Default.argTypes = {
   icon: {
     table: {
@@ -77,6 +85,11 @@ export const WithLink = DefaultTemplate.bind({});
 WithLink.args = {
   href: 'https://example.com',
 };
+// WithLink.parameters = {
+//   docs: {
+//     page: Doc
+//   }
+// };
 WithLink.argTypes = {
   icon: {
     table: {
