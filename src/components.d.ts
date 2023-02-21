@@ -6,6 +6,18 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface CustomDocs {
+        "color": 'primary' | 'secondary' | 'success' | 'danger' | 'warning';
+        "disabled": boolean;
+        "href": string;
+        "iconOnly": boolean;
+        "iconPosition": 'left' | 'right';
+        "label": string;
+        "setFocus": () => Promise<void>;
+        "size": 's' | 'm';
+        "target": string;
+        "variant": 'solid' | 'outline' | 'outline-text';
+    }
     interface IfxAlert {
         "color": 'primary' | 'secondary' | 'success' | 'danger' | 'warning';
         "icon": string;
@@ -76,6 +88,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLCustomDocsElement extends Components.CustomDocs, HTMLStencilElement {
+    }
+    var HTMLCustomDocsElement: {
+        prototype: HTMLCustomDocsElement;
+        new (): HTMLCustomDocsElement;
+    };
     interface HTMLIfxAlertElement extends Components.IfxAlert, HTMLStencilElement {
     }
     var HTMLIfxAlertElement: {
@@ -131,6 +149,7 @@ declare global {
         new (): HTMLIfxSearchInputElement;
     };
     interface HTMLElementTagNameMap {
+        "custom-docs": HTMLCustomDocsElement;
         "ifx-alert": HTMLIfxAlertElement;
         "ifx-button": HTMLIfxButtonElement;
         "ifx-card": HTMLIfxCardElement;
@@ -143,6 +162,17 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface CustomDocs {
+        "color"?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning';
+        "disabled"?: boolean;
+        "href"?: string;
+        "iconOnly"?: boolean;
+        "iconPosition"?: 'left' | 'right';
+        "label"?: string;
+        "size"?: 's' | 'm';
+        "target"?: string;
+        "variant"?: 'solid' | 'outline' | 'outline-text';
+    }
     interface IfxAlert {
         "color"?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning';
         "icon"?: string;
@@ -211,6 +241,7 @@ declare namespace LocalJSX {
         "size"?: 's' | 'm';
     }
     interface IntrinsicElements {
+        "custom-docs": CustomDocs;
         "ifx-alert": IfxAlert;
         "ifx-button": IfxButton;
         "ifx-card": IfxCard;
@@ -226,6 +257,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "custom-docs": LocalJSX.CustomDocs & JSXBase.HTMLAttributes<HTMLCustomDocsElement>;
             "ifx-alert": LocalJSX.IfxAlert & JSXBase.HTMLAttributes<HTMLIfxAlertElement>;
             "ifx-button": LocalJSX.IfxButton & JSXBase.HTMLAttributes<HTMLIfxButtonElement>;
             "ifx-card": LocalJSX.IfxCard & JSXBase.HTMLAttributes<HTMLIfxCardElement>;

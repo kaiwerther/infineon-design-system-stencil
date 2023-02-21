@@ -1,7 +1,16 @@
+// import { Doc } from './docs-page.mdx';
+// import readme from './readme.md';
+
+
 
 export default {
-  title: "Components/Button",
-
+  title: "Components/CustomDocs1",
+  // parameters: {
+  //   notes: readme
+  // docs: {
+  //   page: Doc
+  // }
+  // },
   args: {
     label: "Button",
     variant: "solid",
@@ -37,26 +46,26 @@ export default {
 
 
 const DefaultTemplate = (args) =>
-  `<ifx-button variant="${args.variant}" href="${args.href}" target="_blank" color="${args.color}" size="${args.size}" disabled="${args.disabled}">
+  `<custom-docs variant="${args.variant}" href="${args.href}" target="_blank" color="${args.color}" size="${args.size}" disabled="${args.disabled}">
   ${args.label}
-  </ifx-button>`;
+  </custom-docs>`;
 
 const IconOnlyTemplate = (args) =>
-  `<ifx-button variant="${args.variant}" color="${args.color}" href="${args.href}" target="_blank" size="${args.size}" icon-only>
+  `<custom-docs variant="${args.variant}" color="${args.color}" href="${args.href}" target="_blank" size="${args.size}" icon-only>
   <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 16 16"><title>star 16</title><g stroke-width="1" stroke-linejoin="round" fill="currentColor" stroke="" stroke-linecap="round" class="nc-icon-wrapper"><polygon points="8,0.867 10.318,5.563 15.5,6.316 11.75,9.971 12.635,15.133 8,12.696 3.365,15.133 4.25,9.971 0.5,6.316 5.682,5.563 " data-cap="butt"></polygon> </g></svg>
-</ifx-button>`;
+</custom-docs>`;
 
 const IconToTheLeftTemplate = (args) =>
-  `<ifx-button variant="${args.variant}" color="${args.color}" href="${args.href}" target="_blank" size="${args.size}" disabled="${args.disabled}" iconPosition="${args.iconPosition}">
+  `<custom-docs variant="${args.variant}" color="${args.color}" href="${args.href}" target="_blank" size="${args.size}" disabled="${args.disabled}" iconPosition="${args.iconPosition}">
   <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 16 16"><title>star 16</title><g stroke-width="1" stroke-linejoin="round" fill="currentColor" stroke="" stroke-linecap="round" class="nc-icon-wrapper"><polygon points="8,0.867 10.318,5.563 15.5,6.316 11.75,9.971 12.635,15.133 8,12.696 3.365,15.133 4.25,9.971 0.5,6.316 5.682,5.563 " data-cap="butt"></polygon> </g></svg>
  ${args.label}
-  </ifx-button>`;
+  </custom-docs>`;
 
 const IconToTheRightTemplate = (args) =>
-  `<ifx-button l variant="${args.variant}" color="${args.color}" href="${args.href}" target="_blank" size="${args.size}" disabled="${args.disabled}" iconPosition="${args.iconPosition}">
+  `<custom-docs l variant="${args.variant}" color="${args.color}" href="${args.href}" target="_blank" size="${args.size}" disabled="${args.disabled}" iconPosition="${args.iconPosition}">
   ${args.label}   <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 16 16"><title>star 16</title><g stroke-width="1" stroke-linejoin="round" fill="currentColor" stroke="" stroke-linecap="round" class="nc-icon-wrapper"><polygon points="8,0.867 10.318,5.563 15.5,6.316 11.75,9.971 12.635,15.133 8,12.696 3.365,15.133 4.25,9.971 0.5,6.316 5.682,5.563 " data-cap="butt"></polygon> </g></svg>
 
-  </ifx-button>`;
+  </custom-docs>`;
 
 
 

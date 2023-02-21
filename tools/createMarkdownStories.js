@@ -30,11 +30,13 @@ const templateStory = (name, mdContent) => {
 };
 
 const createStories = async () => {
-  const filePaths = await glob(`**/*.md`, {
-    cwd: './',
+  const filePaths = await glob(`**/readme.md`, {
+    cwd: './src/components/',
     absolute: true,
-    ignore: ['node_modules', 'docs'],
+    ignore: ['node_modules'],
   });
+
+  console.log(filePaths)
 
   filePaths.forEach(async (filePath) => {
     const [, name] = filePath.match(
