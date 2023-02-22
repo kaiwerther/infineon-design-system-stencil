@@ -60,6 +60,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
+    "@babel/preset-typescript": "^7.21.0",
     "@mdx-js/loader": "^2.3.0",
     "@mdx-js/react": "^2.3.0",
     "@stencil/sass": "^2.0.0",
