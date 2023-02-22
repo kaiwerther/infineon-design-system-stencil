@@ -6,15 +6,15 @@ import  Button  from './custom-docs.tsx';
 <Meta title="Components/ButtonMdxStory" 
 component={Button} args={{variant: "solid", color: "primary", size: "m", href: ""}}/>
 
-export const PrimaryTemplate = (args) => ({ template: `<custom-docs :variant="variant" :color="color" :size="size" :href="href"></custom-docs>` });
+export const DefaultTemplate = (args) => ({ template: `<custom-docs :variant="variant" :color="color" :size="size" :href="href"></custom-docs>` });
 
   <Story
-    name="Primary"
+    name="Default"
     args={{
       label: 'Label',
     }}
   >
-    {PrimaryTemplate.bind({})}
+    {DefaultTemplate.bind({})}
     test
   </Story>
 
