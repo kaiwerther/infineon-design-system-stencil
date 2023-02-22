@@ -22,10 +22,28 @@ module.exports = {
     // You can change the configuration based on that.
     // 'PRODUCTION' is used when building the static version of storybook.
 
-    config.module.rules.push({
+    config.module.rules.push(
+      {
+        test: /\.(ts|js)x?$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              "@babel/preset-env",
+              "@babel/preset-react",
+              "@babel/preset-typescript",
+            ],
+            plugins: [["@babel/plugin-proposal-decorators", { "legacy": true }],
+            ],
+          }
+        }
+      }, {
       test: /\.scss$/,
-      use: ["style-loader", "css-loader", "sass-loader"],
-    });
+      use: ["style-loader", "css-loader", "sass-loader"]
+    },
+
+    );
 
     return config;
   },
