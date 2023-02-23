@@ -7,16 +7,17 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface CustomDocs {
-        "color": 'primary' | 'secondary' | 'success' | 'danger' | 'warning';
-        "disabled": boolean;
-        "href": string;
+        "color"?: string;
+        "disabled"?: boolean;
+        "href"?: string;
         "iconOnly": boolean;
         "iconPosition": 'left' | 'right';
         "label": string;
+        "name"?: string;
         "setFocus": () => Promise<void>;
-        "size": 's' | 'm';
-        "target": string;
-        "variant": 'solid' | 'outline' | 'outline-text';
+        "size"?: 's' | 'm';
+        "target"?: string;
+        "variant"?: string;
     }
     interface IfxAlert {
         "color": 'primary' | 'secondary' | 'success' | 'danger' | 'warning';
@@ -163,15 +164,16 @@ declare global {
 }
 declare namespace LocalJSX {
     interface CustomDocs {
-        "color"?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning';
+        "color"?: string;
         "disabled"?: boolean;
         "href"?: string;
         "iconOnly"?: boolean;
         "iconPosition"?: 'left' | 'right';
         "label"?: string;
+        "name"?: string;
         "size"?: 's' | 'm';
         "target"?: string;
-        "variant"?: 'solid' | 'outline' | 'outline-text';
+        "variant"?: string;
     }
     interface IfxAlert {
         "color"?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning';

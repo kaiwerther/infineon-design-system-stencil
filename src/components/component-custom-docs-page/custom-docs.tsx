@@ -3,21 +3,22 @@ import classNames from 'classnames';
 
 @Component({
   tag: 'custom-docs',
-  styleUrl: '../../index.scss',
+  styleUrl: './_custom-docs.scss',
   shadow: true,
 })
 
 export class Button {
   @Prop() label: string;
-  @Prop() variant: 'solid' | 'outline' | 'outline-text';
-  @Prop() color: 'primary' | 'secondary' | 'success' | 'danger' | 'warning';
-  @Prop() size: 's' | 'm';
-  @Prop() disabled: boolean;
+  @Prop() name?: string;
+  @Prop() variant?: string = 'solid';
+  @Prop() color?: string = 'primary';
+  @Prop() size?: 's' | 'm' = 'm';
+  @Prop() disabled?: boolean = false;
 
   @Prop() iconOnly: boolean = false;
   @Prop({ reflect: true }) iconPosition: 'left' | 'right' = 'left';
-  @Prop() href: string;
-  @Prop() target: string = '_self';
+  @Prop() href?: string;
+  @Prop() target?: string = '_self';
 
   private focusableElement: HTMLElement;
 
@@ -27,6 +28,15 @@ export class Button {
   }
 
   render() {
+    const basePart = classNames(
+      'base',
+      this.variant && `variant-${this.variant}`,
+      this.color && `color-${this.color}`,
+      this.iconOnly && 'icon-only',
+      !this.iconOnly && this.iconPosition,
+      this.disabled && 'disabled'
+    );
+
     return (
       <Host>
         {this.href ? (
@@ -35,15 +45,20 @@ export class Button {
             class={this.getClassNames()}
             href={this.href}
             target={this.target}
+            part={basePart}
             rel={this.target === '_blank' ? 'noopener noreferrer' : undefined}
           >
             <slot />
           </a>
         ) : (
-          <button class={this.getClassNames()}
+          <button
+            ref={(el) => (this.focusableElement = el)}
+            class={this.getClassNames()}
             type="button"
+            part={basePart}
+            name={this.name}
           >
-            <slot></slot>
+            <slot />
           </button>
         )}
       </Host>

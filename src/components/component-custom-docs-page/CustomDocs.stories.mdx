@@ -1,0 +1,96 @@
+import { Meta, Canvas, Story, Description, ArgsTable
+ } from '@storybook/addon-docs';
+import CustomDocs from './CustomDocs.vue';
+
+<Meta title="Components/ButtonMdxStory" 
+component={CustomDocs} 
+ argTypes={{
+    variant: {
+      options: ['solid', 'outline', 'outline-text'],
+      control: { type: 'radio' },
+    },
+    color: {
+      options: ['primary', 'secondary', 'success', 'danger', 'warning'],
+      control: { type: 'radio' },
+    },
+    size: {
+      options: ['s', 'm'],
+      control: { type: 'radio' },
+    },
+    label: {
+      defaultValue: 'Label',
+      control: { type: 'text' },
+    },
+  }}
+/>
+
+ 
+
+export const Template = (args, { argTypes }) => ({
+  components: { CustomDocs },
+  props: {
+    label: String,
+    icon: String,
+    ...CustomDocs.props,
+  },
+  template: `
+  <div>
+  <custom-docs
+      :size="size"
+      :color="color"
+      :variant="variant"
+      :name="name"
+      :icon-position="icon === 'after' ? 'after' : 'before'"
+    >
+    
+    </custom-docs>
+    </div>
+  `,
+});
+
+<div
+  style={{
+    display: 'inline-flex',
+    alignItems: 'center',
+    width: '100%',
+  }}
+>
+  <h1>Button</h1>
+ </div>
+
+## Standard
+
+<Canvas withSource="none">
+  <Story
+    name="Standard"
+    args={{
+      label: 'Label',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+
+<ArgsTable story="Standard" />
+
+```html
+<custom-docs>Label</custom-docs>
+```
+
+## Outline
+
+<Canvas withSource="none">
+  <Story
+    name="Outline"
+    args={{
+      variant: 'outline',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+```html
+<custom-docs variant="outline">Label</custom-docs>
+```

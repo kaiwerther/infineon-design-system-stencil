@@ -1,5 +1,8 @@
 @use "../../../node_modules/@infineon/design-system-tokens/dist/tokens";
 
+:host {
+  --width: auto;
+}
 
 .btn {
   display: inline-flex;
@@ -34,7 +37,7 @@
   background-color: tokens.$color-default-500;
   border-color: tokens.$color-default-500;
 
-  & svg { 
+  & svg {
     stroke: tokens.$color-text-white;
   }
 
@@ -45,7 +48,7 @@
   color: tokens.$color-default-500;
   border-color: tokens.$color-default-500;
 
-  & svg { 
+  & svg {
     stroke: tokens.$color-default-500;
   }
 }
@@ -55,7 +58,7 @@
   background-color: tokens.$color-highlight-500;
   border-color: tokens.$color-highlight-500;
 
-  & svg { 
+  & svg {
     stroke: tokens.$color-text-white;
   }
 }
@@ -65,7 +68,7 @@
   color: tokens.$color-highlight-500;
   border-color: tokens.$color-highlight-500;
 
-  & svg { 
+  & svg {
     stroke: tokens.$color-highlight-500;
   }
 }
@@ -75,7 +78,7 @@
   background-color: tokens.$color-success-500;
   border-color: tokens.$color-success-500;
 
-  & svg { 
+  & svg {
     stroke: tokens.$color-text-black;
   }
 }
@@ -84,7 +87,7 @@
   background-color: tokens.$color-bg-white;
   border-color: tokens.$color-success-500;
 
-  & svg { 
+  & svg {
     stroke: tokens.$color-text-black;
   }
 }
@@ -94,7 +97,7 @@
   background-color: tokens.$color-danger-500;
   border-color: tokens.$color-danger-500;
 
-  & svg { 
+  & svg {
     stroke: tokens.$color-text-white;
   }
 }
@@ -104,7 +107,7 @@
   color: tokens.$color-danger-500;
   border-color: tokens.$color-danger-500;
 
-  & svg { 
+  & svg {
     stroke: tokens.$color-danger-500;
   }
 }
@@ -114,7 +117,7 @@
   background-color: tokens.$color-warning-500;
   border-color: tokens.$color-warning-500;
 
-  & svg { 
+  & svg {
     stroke: tokens.$color-text-black;
   }
 }
@@ -123,7 +126,7 @@
   background-color: tokens.$color-bg-white;
   border-color: tokens.$color-warning-500;
 
-  & svg { 
+  & svg {
     stroke: tokens.$color-text-black;
   }
 }
@@ -131,7 +134,7 @@
 
 
 .btn {
- 
+
   &.btn-s {
     font-size: tokens.$font-size-s;
     min-width: 71px;
@@ -256,7 +259,7 @@
   }
 
   &.btn-success:not(:disabled, .disabled) {
- 
+
     &:focus {
       background-color: tokens.$color-success-500;
       border-color: tokens.$color-success-500;
@@ -331,7 +334,7 @@
   }
 
   &.btn-warning:not(:disabled, .disabled) {
-  
+
     &:focus {
       background-color: tokens.$color-warning-500;
       border-color: tokens.$color-warning-500;
@@ -375,18 +378,18 @@
     &:hover {
       color: tokens.$color-default-600;
 
-       & svg { 
+      & svg {
         stroke: tokens.$color-default-600;
-       }
+      }
     }
 
     &:active,
     &.active {
       color: tokens.$color-default-700;
 
-      & svg { 
+      & svg {
         stroke: tokens.$color-default-700;
-       }
+      }
     }
 
     &:disabled,
@@ -396,12 +399,12 @@
       border-color: transparent;
       color: tokens.$color-gray-300;
 
-      & svg { 
+      & svg {
         stroke: tokens.$color-gray-300;
-       }
+      }
     }
 
-    & svg { 
+    & svg {
       stroke: tokens.$color-default-500;
     }
   }
@@ -413,7 +416,7 @@
     &:hover {
       color: tokens.$color-highlight-600;
 
-      & svg { 
+      & svg {
         stroke: tokens.$color-highlight-600;
       }
     }
@@ -422,7 +425,7 @@
     &.active {
       color: tokens.$color-highlight-700;
 
-      & svg { 
+      & svg {
         stroke: tokens.$color-highlight-700;
       }
     }
@@ -434,12 +437,12 @@
       border-color: transparent;
       color: tokens.$color-gray-300;
 
-      & svg { 
+      & svg {
         stroke: tokens.$color-gray-300;
       }
     }
 
-    & svg { 
+    & svg {
       stroke: tokens.$color-highlight-500;
     }
   }
@@ -451,7 +454,7 @@
     &:hover {
       color: tokens.$color-success-600;
 
-      & svg { 
+      & svg {
         stroke: tokens.$color-success-600;
       }
     }
@@ -460,7 +463,7 @@
     &.active {
       color: tokens.$color-success-700;
 
-      & svg { 
+      & svg {
         stroke: tokens.$color-success-700;
       }
     }
@@ -472,12 +475,12 @@
       border-color: transparent;
       color: tokens.$color-gray-300;
 
-      & svg { 
+      & svg {
         stroke: tokens.$color-gray-300;
       }
     }
 
-    & svg { 
+    & svg {
       stroke: tokens.$color-success-500;
     }
   }
@@ -489,7 +492,7 @@
     &:hover {
       color: tokens.$color-danger-600;
 
-      & svg { 
+      & svg {
         stroke: tokens.$color-danger-600;
       }
     }
@@ -498,7 +501,7 @@
     &.active {
       color: tokens.$color-danger-700;
 
-      & svg { 
+      & svg {
         stroke: tokens.$color-danger-700;
       }
     }
@@ -510,12 +513,12 @@
       border-color: transparent;
       color: tokens.$color-gray-300;
 
-      & svg { 
+      & svg {
         stroke: tokens.$color-gray-300;
       }
     }
 
-    & svg { 
+    & svg {
       stroke: tokens.$color-danger-500;
     }
   }
@@ -527,7 +530,7 @@
     &:hover {
       color: tokens.$color-warning-600;
 
-      & svg { 
+      & svg {
         stroke: tokens.$color-warning-600;
       }
     }
@@ -536,7 +539,7 @@
     &.active {
       color: tokens.$color-warning-700;
 
-      & svg { 
+      & svg {
         stroke: tokens.$color-warning-700;
       }
     }
@@ -548,12 +551,12 @@
       border-color: transparent;
       color: tokens.$color-gray-300;
 
-      & svg { 
+      & svg {
         stroke: tokens.$color-gray-300;
       }
     }
 
-    & svg { 
+    & svg {
       stroke: tokens.$color-warning-500;
     }
   }
@@ -572,5 +575,3 @@
     }
   }
 }
-
-
