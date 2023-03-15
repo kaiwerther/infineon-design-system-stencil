@@ -46,12 +46,17 @@
     "bundle-fonts": "copyfiles -u 4 ./node_modules/@infineon/design-system-tokens/dist/fonts/**/* dist",
     "bundle-assets": "copyfiles -u 1 ./public/* dist && copyfiles -u 1 ./public/**/* dist",
     "bundle-ts": "stencil build --docs",
-    "bundle": "rimraf ./dist && npm run bundle-css && npm run bundle-ts && npm run bundle-fonts && npm run bundle-assets"
+    "bundle": "rimraf ./dist && npm run bundle-css && npm run bundle-ts && npm run bundle-fonts && npm run bundle-assets",
+    "test-storybook": "test-storybook"
   },
   "dependencies": {
     "@infineon/design-system-tokens": "^2.0.1",
     "@infineon/infineon-icons": "^1.0.9",
     "@stencil/core": "^2.16.0",
+    "@storybook/addon-interactions": "^6.5.16",
+    "@storybook/jest": "^0.0.10",
+    "@storybook/test-runner": "^0.9.4",
+    "@storybook/testing-library": "^0.0.13",
     "classnames": "^2.3.2"
   },
   "devDependencies": {
@@ -64,6 +69,7 @@
     "@storybook/html": "^6.5.13",
     "@storybook/manager-webpack4": "^6.5.13",
     "@types/jest": "^27.0.3",
+    "@types/node": "^18.15.3",
     "babel-loader": "^8.3.0",
     "chokidar-cli": "^3.0.0",
     "concurrently": "^6.4.0",

@@ -6,10 +6,12 @@ module.exports = {
   "addons": [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
+    '@storybook/addon-interactions',
    ],
   "features": {
     storyStoreV7: true,
     "postcss": false,
+    interactionsDebugger: true,
   },
   "framework": "@storybook/html",
   webpackFinal: async (config, { configType }) => {
