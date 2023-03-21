@@ -1,12 +1,22 @@
-// accordion-wrapper.tsx
-import { Component, h } from '@stencil/core';
+import { Component, h, Listen } from '@stencil/core';
 
 @Component({
-  tag: 'accordion-wrapper',
-  styleUrl: 'accordion-wrapper.css',
+  tag: 'ifx-accordion',
+  styleUrl: 'ifxAccordion.scss',
   shadow: true,
 })
-export class AccordionWrapper {
+export class IfxAccordion {
+  @Listen('itemOpened', { target: 'body' })
+  async onItemOpened(event: CustomEvent) {
+    const items = Array.from(document.querySelectorAll('ifx-accordion-item'));
+    for (const item of items) {
+      const itemElement = item as HTMLIfxAccordionItemElement;
+      if (itemElement !== event.target && (await itemElement.isOpen())) {
+        itemElement.close();
+      }
+    }
+  }
+
   render() {
     return (
       <div class="accordion-wrapper">

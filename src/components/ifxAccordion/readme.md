@@ -7,24 +7,40 @@
 
 ## Properties
 
-| Property         | Attribute         | Description | Type      | Default     |
-| ---------------- | ----------------- | ----------- | --------- | ----------- |
-| `disabled`       | `disabled`        |             | `boolean` | `false`     |
-| `leftIcon`       | `left-icon`       |             | `string`  | `undefined` |
-| `leftText`       | `left-text`       |             | `string`  | `undefined` |
-| `max`            | `max`             |             | `number`  | `100`       |
-| `min`            | `min`             |             | `number`  | `0`         |
-| `rightIcon`      | `right-icon`      |             | `string`  | `undefined` |
-| `rightText`      | `right-text`      |             | `string`  | `undefined` |
-| `showPercentage` | `show-percentage` |             | `boolean` | `false`     |
-| `value`          | `value`           |             | `number`  | `0`         |
+| Property  | Attribute | Description | Type     | Default     |
+| --------- | --------- | ----------- | -------- | ----------- |
+| `caption` | `caption` |             | `string` | `undefined` |
 
 
 ## Events
 
-| Event          | Description | Type                  |
-| -------------- | ----------- | --------------------- |
-| `valueChanged` |             | `CustomEvent<number>` |
+| Event        | Description | Type               |
+| ------------ | ----------- | ------------------ |
+| `itemClosed` |             | `CustomEvent<any>` |
+| `itemOpened` |             | `CustomEvent<any>` |
+
+
+## Methods
+
+### `close() => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `isOpen() => Promise<boolean>`
+
+
+
+#### Returns
+
+Type: `Promise<boolean>`
+
+
 
 
 ----------------------------------------------
