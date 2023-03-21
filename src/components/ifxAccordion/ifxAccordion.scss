@@ -1,0 +1,10 @@
+/* accordion-wrapper.css */
+:host {
+  display: block;
+}
+
+.accordion-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}

@@ -6,6 +6,11 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface AccordionItem {
+        "title": string;
+    }
+    interface AccordionWrapper {
+    }
     interface IfxAlert {
         "color": 'primary' | 'secondary' | 'success' | 'danger' | 'warning';
         "icon": string;
@@ -93,6 +98,17 @@ export namespace Components {
         "target": string;
         "underline": any;
     }
+    interface IfxRange {
+        "disabled": boolean;
+        "leftIcon": string;
+        "leftText": string;
+        "max": number;
+        "min": number;
+        "rightIcon": string;
+        "rightText": string;
+        "showPercentage": boolean;
+        "value": number;
+    }
     interface IfxSearchInput {
         "disabled": boolean;
         "filter": boolean;
@@ -109,8 +125,31 @@ export namespace Components {
     interface IfxTag {
         "text": string;
     }
+    interface IfxToggle {
+        "checked": boolean;
+    }
+}
+export interface IfxRangeCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIfxRangeElement;
+}
+export interface IfxToggleCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIfxToggleElement;
 }
 declare global {
+    interface HTMLAccordionItemElement extends Components.AccordionItem, HTMLStencilElement {
+    }
+    var HTMLAccordionItemElement: {
+        prototype: HTMLAccordionItemElement;
+        new (): HTMLAccordionItemElement;
+    };
+    interface HTMLAccordionWrapperElement extends Components.AccordionWrapper, HTMLStencilElement {
+    }
+    var HTMLAccordionWrapperElement: {
+        prototype: HTMLAccordionWrapperElement;
+        new (): HTMLAccordionWrapperElement;
+    };
     interface HTMLIfxAlertElement extends Components.IfxAlert, HTMLStencilElement {
     }
     var HTMLIfxAlertElement: {
@@ -189,6 +228,12 @@ declare global {
         prototype: HTMLIfxLinkElement;
         new (): HTMLIfxLinkElement;
     };
+    interface HTMLIfxRangeElement extends Components.IfxRange, HTMLStencilElement {
+    }
+    var HTMLIfxRangeElement: {
+        prototype: HTMLIfxRangeElement;
+        new (): HTMLIfxRangeElement;
+    };
     interface HTMLIfxSearchInputElement extends Components.IfxSearchInput, HTMLStencilElement {
     }
     var HTMLIfxSearchInputElement: {
@@ -207,7 +252,15 @@ declare global {
         prototype: HTMLIfxTagElement;
         new (): HTMLIfxTagElement;
     };
+    interface HTMLIfxToggleElement extends Components.IfxToggle, HTMLStencilElement {
+    }
+    var HTMLIfxToggleElement: {
+        prototype: HTMLIfxToggleElement;
+        new (): HTMLIfxToggleElement;
+    };
     interface HTMLElementTagNameMap {
+        "accordion-item": HTMLAccordionItemElement;
+        "accordion-wrapper": HTMLAccordionWrapperElement;
         "ifx-alert": HTMLIfxAlertElement;
         "ifx-button": HTMLIfxButtonElement;
         "ifx-card": HTMLIfxCardElement;
@@ -221,12 +274,19 @@ declare global {
         "ifx-icon": HTMLIfxIconElement;
         "ifx-icon-button": HTMLIfxIconButtonElement;
         "ifx-link": HTMLIfxLinkElement;
+        "ifx-range": HTMLIfxRangeElement;
         "ifx-search-input": HTMLIfxSearchInputElement;
         "ifx-status": HTMLIfxStatusElement;
         "ifx-tag": HTMLIfxTagElement;
+        "ifx-toggle": HTMLIfxToggleElement;
     }
 }
 declare namespace LocalJSX {
+    interface AccordionItem {
+        "title"?: string;
+    }
+    interface AccordionWrapper {
+    }
     interface IfxAlert {
         "color"?: 'primary' | 'secondary' | 'success' | 'danger' | 'warning';
         "icon"?: string;
@@ -312,6 +372,18 @@ declare namespace LocalJSX {
         "target"?: string;
         "underline"?: any;
     }
+    interface IfxRange {
+        "disabled"?: boolean;
+        "leftIcon"?: string;
+        "leftText"?: string;
+        "max"?: number;
+        "min"?: number;
+        "onValueChanged"?: (event: IfxRangeCustomEvent<number>) => void;
+        "rightIcon"?: string;
+        "rightText"?: string;
+        "showPercentage"?: boolean;
+        "value"?: number;
+    }
     interface IfxSearchInput {
         "disabled"?: boolean;
         "filter"?: boolean;
@@ -328,7 +400,13 @@ declare namespace LocalJSX {
     interface IfxTag {
         "text"?: string;
     }
+    interface IfxToggle {
+        "checked"?: boolean;
+        "onValueChanged"?: (event: IfxToggleCustomEvent<boolean>) => void;
+    }
     interface IntrinsicElements {
+        "accordion-item": AccordionItem;
+        "accordion-wrapper": AccordionWrapper;
         "ifx-alert": IfxAlert;
         "ifx-button": IfxButton;
         "ifx-card": IfxCard;
@@ -342,15 +420,19 @@ declare namespace LocalJSX {
         "ifx-icon": IfxIcon;
         "ifx-icon-button": IfxIconButton;
         "ifx-link": IfxLink;
+        "ifx-range": IfxRange;
         "ifx-search-input": IfxSearchInput;
         "ifx-status": IfxStatus;
         "ifx-tag": IfxTag;
+        "ifx-toggle": IfxToggle;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "accordion-item": LocalJSX.AccordionItem & JSXBase.HTMLAttributes<HTMLAccordionItemElement>;
+            "accordion-wrapper": LocalJSX.AccordionWrapper & JSXBase.HTMLAttributes<HTMLAccordionWrapperElement>;
             "ifx-alert": LocalJSX.IfxAlert & JSXBase.HTMLAttributes<HTMLIfxAlertElement>;
             "ifx-button": LocalJSX.IfxButton & JSXBase.HTMLAttributes<HTMLIfxButtonElement>;
             "ifx-card": LocalJSX.IfxCard & JSXBase.HTMLAttributes<HTMLIfxCardElement>;
@@ -364,9 +446,11 @@ declare module "@stencil/core" {
             "ifx-icon": LocalJSX.IfxIcon & JSXBase.HTMLAttributes<HTMLIfxIconElement>;
             "ifx-icon-button": LocalJSX.IfxIconButton & JSXBase.HTMLAttributes<HTMLIfxIconButtonElement>;
             "ifx-link": LocalJSX.IfxLink & JSXBase.HTMLAttributes<HTMLIfxLinkElement>;
+            "ifx-range": LocalJSX.IfxRange & JSXBase.HTMLAttributes<HTMLIfxRangeElement>;
             "ifx-search-input": LocalJSX.IfxSearchInput & JSXBase.HTMLAttributes<HTMLIfxSearchInputElement>;
             "ifx-status": LocalJSX.IfxStatus & JSXBase.HTMLAttributes<HTMLIfxStatusElement>;
             "ifx-tag": LocalJSX.IfxTag & JSXBase.HTMLAttributes<HTMLIfxTagElement>;
+            "ifx-toggle": LocalJSX.IfxToggle & JSXBase.HTMLAttributes<HTMLIfxToggleElement>;
         }
     }
 }
