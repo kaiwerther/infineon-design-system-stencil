@@ -86,6 +86,9 @@ export namespace Components {
         "target": string;
         "variant": 'solid' | 'outline' | 'outline-text';
     }
+    interface IfxIconTs {
+        "name": string;
+    }
     interface IfxLink {
         "href": string;
         "icon": any;
@@ -183,6 +186,12 @@ declare global {
         prototype: HTMLIfxIconButtonElement;
         new (): HTMLIfxIconButtonElement;
     };
+    interface HTMLIfxIconTsElement extends Components.IfxIconTs, HTMLStencilElement {
+    }
+    var HTMLIfxIconTsElement: {
+        prototype: HTMLIfxIconTsElement;
+        new (): HTMLIfxIconTsElement;
+    };
     interface HTMLIfxLinkElement extends Components.IfxLink, HTMLStencilElement {
     }
     var HTMLIfxLinkElement: {
@@ -220,6 +229,7 @@ declare global {
         "ifx-filter-input": HTMLIfxFilterInputElement;
         "ifx-icon": HTMLIfxIconElement;
         "ifx-icon-button": HTMLIfxIconButtonElement;
+        "ifx-icon-ts": HTMLIfxIconTsElement;
         "ifx-link": HTMLIfxLinkElement;
         "ifx-search-input": HTMLIfxSearchInputElement;
         "ifx-status": HTMLIfxStatusElement;
@@ -305,6 +315,9 @@ declare namespace LocalJSX {
         "target"?: string;
         "variant"?: 'solid' | 'outline' | 'outline-text';
     }
+    interface IfxIconTs {
+        "name"?: string;
+    }
     interface IfxLink {
         "href"?: string;
         "icon"?: any;
@@ -341,6 +354,7 @@ declare namespace LocalJSX {
         "ifx-filter-input": IfxFilterInput;
         "ifx-icon": IfxIcon;
         "ifx-icon-button": IfxIconButton;
+        "ifx-icon-ts": IfxIconTs;
         "ifx-link": IfxLink;
         "ifx-search-input": IfxSearchInput;
         "ifx-status": IfxStatus;
@@ -363,6 +377,7 @@ declare module "@stencil/core" {
             "ifx-filter-input": LocalJSX.IfxFilterInput & JSXBase.HTMLAttributes<HTMLIfxFilterInputElement>;
             "ifx-icon": LocalJSX.IfxIcon & JSXBase.HTMLAttributes<HTMLIfxIconElement>;
             "ifx-icon-button": LocalJSX.IfxIconButton & JSXBase.HTMLAttributes<HTMLIfxIconButtonElement>;
+            "ifx-icon-ts": LocalJSX.IfxIconTs & JSXBase.HTMLAttributes<HTMLIfxIconTsElement>;
             "ifx-link": LocalJSX.IfxLink & JSXBase.HTMLAttributes<HTMLIfxLinkElement>;
             "ifx-search-input": LocalJSX.IfxSearchInput & JSXBase.HTMLAttributes<HTMLIfxSearchInputElement>;
             "ifx-status": LocalJSX.IfxStatus & JSXBase.HTMLAttributes<HTMLIfxStatusElement>;

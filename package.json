@@ -30,19 +30,22 @@
     "dev:storybook": "start-storybook -p 6262",
     "dev:stencil": "stencil build --watch",
     "dev": "run-p dev:stencil dev:storybook",
+    "run:stencil": "stencil build --watch --dev --serve --port 6262",
     "test": "stencil test --e2e --reporters=default --reporters=jest-github-actions-reporter",
     "build:storybook": "npm run build:stencil && build-storybook",
     "build:stencil": "stencil build --docs"
   },
   "dependencies": {
     "@infineon/design-system-tokens": "^2.0.1",
-    "@infineon/infineon-icons": "^1.0.9",
+    "@infineon/infineon-icons": "^2.0.0--canary.14.0aa8bc3b52b283e2036798158896194624e348ef.0",
     "@stencil/core": "^2.16.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.2",
     "@mdx-js/loader": "^2.3.0",
     "@mdx-js/react": "^2.3.0",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-url": "^8.0.1",
     "@stencil/sass": "^2.0.0",
     "@storybook/addon-actions": "^6.5.13",
     "@storybook/addon-essentials": "^6.5.13",
@@ -73,8 +76,11 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "rimraf": "^3.0.2",
+    "rollup-plugin-inline-svg": "^3.0.3",
+    "rollup-plugin-vue-inline-svg": "^1.1.2",
     "sass": "^1.44.0",
     "sass-loader": "^10",
+    "stencil-inline-svg": "^1.1.0",
     "style-loader": "^2"
   },
   "resolutions": {

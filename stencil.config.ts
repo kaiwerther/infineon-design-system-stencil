@@ -1,11 +1,10 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
-// import nodePolyfills from 'rollup-plugin-node-polyfills';
+import { inlineSvg } from 'stencil-inline-svg';
 
 export const config: Config = {
   namespace: 'infineon-design-system-stencil',
-  globalScript: 'src/index.ts',
-  globalStyle: 'src/global/global.scss',
+  globalScript: 'src/utils/utils.ts',
 
   outputTargets: [
     {
@@ -26,14 +25,9 @@ export const config: Config = {
   ],
   
   plugins: [
-    sass()
+    sass(),
+    inlineSvg(),
   ],
-  
-  // rollupPlugins: {
-  //   after: [
-  //     nodePolyfills(),
-  //   ]
-  // },
   extras: {
     cloneNodeFix: true,
     experimentalImportInjection: true,
