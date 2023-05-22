@@ -1,0 +1,53 @@
+@use "~@infineon/design-system-tokens/dist/tokens";
+// components/ifx-simple-table/ifx-simple-table.scss
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: none;
+  padding: 8px;
+}
+
+tr {
+  border-bottom: 1px solid tokens.$color-gray-300;
+}
+
+th {
+  background-color: tokens.$color-bg-white;
+  color: tokens.$color-text-black;
+  cursor: pointer;
+}
+
+thead {
+  border-bottom: 2px solid tokens.$color-gray-300;
+}
+
+td.numeric-cell {
+  text-align: right;
+  font-family: 'Courier New', monospace;
+}
+
+td.text-cell {
+  text-align: left;
+}
+
+th .header-content  {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+tr:nth-child(even) {
+  background-color: tokens.$color-gray-100;
+}
+
+tfoot {
+  background-color: tokens.$color-bg-white;
+  color: tokens.$color-text-black;
+}
+
+.disabled {
+  color: tokens.$color-gray-400;
+}

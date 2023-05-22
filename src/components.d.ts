@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { ColumnType } from "./components/table/simple-table/simple-table";
 import { TabOrientation } from "./components/tabs/tabs";
 export namespace Components {
     interface IfxAccordion {
@@ -141,6 +142,12 @@ export namespace Components {
     interface IfxNumberIndicator {
         "inverted": boolean;
     }
+    interface IfxPagination {
+        "currentPage": number;
+        "entriesSize": number;
+        "pageSize": number;
+        "pageSizes": number[];
+    }
     interface IfxProgressBar {
         "label": string;
         "percentage": number;
@@ -177,6 +184,11 @@ export namespace Components {
         "size": string;
         "width": string;
     }
+    interface IfxSimpleTable {
+        "columns": ColumnType[];
+        "content": any[];
+        "pageSize": number;
+    }
     interface IfxSpinner {
         "size": string;
     }
@@ -206,6 +218,10 @@ export namespace Components {
 export interface IfxAccordionItemCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLIfxAccordionItemElement;
+}
+export interface IfxPaginationCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLIfxPaginationElement;
 }
 export interface IfxProgressBarCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -392,6 +408,12 @@ declare global {
         prototype: HTMLIfxNumberIndicatorElement;
         new (): HTMLIfxNumberIndicatorElement;
     };
+    interface HTMLIfxPaginationElement extends Components.IfxPagination, HTMLStencilElement {
+    }
+    var HTMLIfxPaginationElement: {
+        prototype: HTMLIfxPaginationElement;
+        new (): HTMLIfxPaginationElement;
+    };
     interface HTMLIfxProgressBarElement extends Components.IfxProgressBar, HTMLStencilElement {
     }
     var HTMLIfxProgressBarElement: {
@@ -421,6 +443,12 @@ declare global {
     var HTMLIfxSearchInputElement: {
         prototype: HTMLIfxSearchInputElement;
         new (): HTMLIfxSearchInputElement;
+    };
+    interface HTMLIfxSimpleTableElement extends Components.IfxSimpleTable, HTMLStencilElement {
+    }
+    var HTMLIfxSimpleTableElement: {
+        prototype: HTMLIfxSimpleTableElement;
+        new (): HTMLIfxSimpleTableElement;
     };
     interface HTMLIfxSpinnerElement extends Components.IfxSpinner, HTMLStencilElement {
     }
@@ -491,11 +519,13 @@ declare global {
         "ifx-navbar": HTMLIfxNavbarElement;
         "ifx-navbar-menu-item": HTMLIfxNavbarMenuItemElement;
         "ifx-number-indicator": HTMLIfxNumberIndicatorElement;
+        "ifx-pagination": HTMLIfxPaginationElement;
         "ifx-progress-bar": HTMLIfxProgressBarElement;
         "ifx-radio-button": HTMLIfxRadioButtonElement;
         "ifx-range": HTMLIfxRangeElement;
         "ifx-search-bar": HTMLIfxSearchBarElement;
         "ifx-search-input": HTMLIfxSearchInputElement;
+        "ifx-simple-table": HTMLIfxSimpleTableElement;
         "ifx-spinner": HTMLIfxSpinnerElement;
         "ifx-status": HTMLIfxStatusElement;
         "ifx-tab": HTMLIfxTabElement;
@@ -638,6 +668,14 @@ declare namespace LocalJSX {
     interface IfxNumberIndicator {
         "inverted"?: boolean;
     }
+    interface IfxPagination {
+        "currentPage"?: number;
+        "entriesSize"?: number;
+        "onPageChanged"?: (event: IfxPaginationCustomEvent<any>) => void;
+        "onPageSizeChanged"?: (event: IfxPaginationCustomEvent<any>) => void;
+        "pageSize"?: number;
+        "pageSizes"?: number[];
+    }
     interface IfxProgressBar {
         "label"?: string;
         "onPercentageChange"?: (event: IfxProgressBarCustomEvent<CustomEvent>) => void;
@@ -677,6 +715,11 @@ declare namespace LocalJSX {
         "showDeleteIcon"?: boolean;
         "size"?: string;
         "width"?: string;
+    }
+    interface IfxSimpleTable {
+        "columns"?: ColumnType[];
+        "content"?: any[];
+        "pageSize"?: number;
     }
     interface IfxSpinner {
         "size"?: string;
@@ -734,11 +777,13 @@ declare namespace LocalJSX {
         "ifx-navbar": IfxNavbar;
         "ifx-navbar-menu-item": IfxNavbarMenuItem;
         "ifx-number-indicator": IfxNumberIndicator;
+        "ifx-pagination": IfxPagination;
         "ifx-progress-bar": IfxProgressBar;
         "ifx-radio-button": IfxRadioButton;
         "ifx-range": IfxRange;
         "ifx-search-bar": IfxSearchBar;
         "ifx-search-input": IfxSearchInput;
+        "ifx-simple-table": IfxSimpleTable;
         "ifx-spinner": IfxSpinner;
         "ifx-status": IfxStatus;
         "ifx-tab": IfxTab;
@@ -778,11 +823,13 @@ declare module "@stencil/core" {
             "ifx-navbar": LocalJSX.IfxNavbar & JSXBase.HTMLAttributes<HTMLIfxNavbarElement>;
             "ifx-navbar-menu-item": LocalJSX.IfxNavbarMenuItem & JSXBase.HTMLAttributes<HTMLIfxNavbarMenuItemElement>;
             "ifx-number-indicator": LocalJSX.IfxNumberIndicator & JSXBase.HTMLAttributes<HTMLIfxNumberIndicatorElement>;
+            "ifx-pagination": LocalJSX.IfxPagination & JSXBase.HTMLAttributes<HTMLIfxPaginationElement>;
             "ifx-progress-bar": LocalJSX.IfxProgressBar & JSXBase.HTMLAttributes<HTMLIfxProgressBarElement>;
             "ifx-radio-button": LocalJSX.IfxRadioButton & JSXBase.HTMLAttributes<HTMLIfxRadioButtonElement>;
             "ifx-range": LocalJSX.IfxRange & JSXBase.HTMLAttributes<HTMLIfxRangeElement>;
             "ifx-search-bar": LocalJSX.IfxSearchBar & JSXBase.HTMLAttributes<HTMLIfxSearchBarElement>;
             "ifx-search-input": LocalJSX.IfxSearchInput & JSXBase.HTMLAttributes<HTMLIfxSearchInputElement>;
+            "ifx-simple-table": LocalJSX.IfxSimpleTable & JSXBase.HTMLAttributes<HTMLIfxSimpleTableElement>;
             "ifx-spinner": LocalJSX.IfxSpinner & JSXBase.HTMLAttributes<HTMLIfxSpinnerElement>;
             "ifx-status": LocalJSX.IfxStatus & JSXBase.HTMLAttributes<HTMLIfxStatusElement>;
             "ifx-tab": LocalJSX.IfxTab & JSXBase.HTMLAttributes<HTMLIfxTabElement>;
